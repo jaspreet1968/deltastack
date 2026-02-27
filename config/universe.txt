@@ -1,0 +1,12 @@
+# DeltaStack ticker universe – one ticker per line
+# Lines starting with # are comments
+AAPL
+MSFT
+GOOGL
+AMZN
+META
+NVDA
+TSLA
+SPY
+QQQ
+IWM

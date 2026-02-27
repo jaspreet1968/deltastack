@@ -1,0 +1,20 @@
+[Unit]
+Description=DeltaStack Next.js Frontend
+After=network.target deltastack-api.service
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/apps/deltastack/frontend
+EnvironmentFile=/home/ec2-user/apps/deltastack/.env
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=BACKEND_BASE_URL=http://127.0.0.1:8000
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

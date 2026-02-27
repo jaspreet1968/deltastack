@@ -1,0 +1,12 @@
+[Unit]
+Description=DeltaStack daily backup
+After=network.target
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/home/ec2-user/apps/deltastack
+EnvironmentFile=/home/ec2-user/apps/deltastack/.env
+ExecStart=/bin/bash /home/ec2-user/apps/deltastack/scripts/backup.sh
+StandardOutput=journal
+StandardError=journal

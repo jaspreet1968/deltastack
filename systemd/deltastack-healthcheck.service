@@ -1,0 +1,12 @@
+[Unit]
+Description=DeltaStack daily automated health check
+After=network.target
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/home/ec2-user/apps/deltastack
+EnvironmentFile=/home/ec2-user/apps/deltastack/.env
+ExecStart=/home/ec2-user/apps/deltastack/venv/bin/python scripts/healthcheck.py
+StandardOutput=journal
+StandardError=journal

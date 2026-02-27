@@ -1,0 +1,12 @@
+[Unit]
+Description=DeltaStack Mad Max forced flatten at 15:45 ET
+After=network.target
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/home/ec2-user/apps/deltastack
+EnvironmentFile=/home/ec2-user/apps/deltastack/.env
+ExecStart=/home/ec2-user/apps/deltastack/venv/bin/python -c "from deltastack.db import ensure_tables; ensure_tables(); from deltastack.db.dao_agents import get_agent_by_name; a=get_agent_by_name('mad_max'); print('Agent:', a['agent_id'] if a else 'not found')"
+StandardOutput=journal
+StandardError=journal

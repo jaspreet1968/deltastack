@@ -1,0 +1,9 @@
+[Unit]
+Description=DeltaStack Mad Max forced flatten at 15:45 ET Mon-Fri
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 19:45:00 UTC
+Persistent=false
+
+[Install]
+WantedBy=timers.target

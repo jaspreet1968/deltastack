@@ -1,0 +1,9 @@
+[Unit]
+Description=Capture QQQ options snapshots every 5 min during market hours
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 14:30..21:00:00/300
+Persistent=false
+
+[Install]
+WantedBy=timers.target

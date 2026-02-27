@@ -1,0 +1,12 @@
+[Unit]
+Description=DeltaStack nightly universe data ingestion
+After=network.target
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/home/ec2-user/apps/deltastack
+EnvironmentFile=/home/ec2-user/apps/deltastack/.env
+ExecStart=/home/ec2-user/apps/deltastack/venv/bin/python -m deltastack --ticker-file config/universe.txt --start 2016-01-01 --end 2026-12-31
+StandardOutput=journal
+StandardError=journal
